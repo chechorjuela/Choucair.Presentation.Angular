@@ -1,0 +1,22 @@
+<div class="login-container">
+  <mat-card>
+    <h2>Inicio de Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" required>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="primary accent" type="submit">Iniciar sesión</button>
+      <button mat-raised-button color="accent" (click)="toggleForm()">Registrate</button>
+    </form>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </mat-card>
+</div>

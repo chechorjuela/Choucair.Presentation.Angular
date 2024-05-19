@@ -1,0 +1,11 @@
+
+<mat-toolbar color="primary" *ngIf="authService.checkAuthenticated()">
+  <span>Test ChouncairTesting</span>
+  <span class="spacer"></span>
+  <div class="link-container">
+    <a mat-button routerLink="/dashboard">Dashboard</a>
+    <a mat-button routerLink="/dashboard/task">My Tasks</a>
+    <a mat-button routerLink="/dashboard/profile">Profile</a>
+    <a mat-button (click)="logout()" >Logout</a>
+  </div>
+</mat-toolbar>

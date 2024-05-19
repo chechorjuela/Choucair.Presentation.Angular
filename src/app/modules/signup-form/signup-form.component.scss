@@ -1,0 +1,39 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4b0082, #800080);
+
+  mat-card {
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1rem;
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding-right: 15px;
+      font-weight: bold;
+
+      &:first-child {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

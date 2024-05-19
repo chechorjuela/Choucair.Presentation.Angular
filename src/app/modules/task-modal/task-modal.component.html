@@ -1,0 +1,9 @@
+<h1 mat-dialog-title> @if(!data){Create} @else {
+  Update
+} Task</h1>
+<div mat-dialog-content>
+  <app-task-form [taskpath]="data" (onCancel)="onCancel()"></app-task-form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>

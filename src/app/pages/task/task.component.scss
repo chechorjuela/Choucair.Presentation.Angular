@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* Set the height to the viewport height */
+  padding: 0 180px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title h1 {
+  font-size: 2em;
+  color: #333; /* You can adjust the color as needed */
+}
+
+.title p {
+  font-size: 1.2em;
+  color: #666; /* You can adjust the color as needed */
+}
+
+.table {
+  min-width: 80%; /* Adjust the width as needed */
+}
