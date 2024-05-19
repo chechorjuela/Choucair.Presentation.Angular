@@ -7,7 +7,6 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ButtonComponent} from './atoms/button/button.component';
 import {InputComponent} from './atoms/input/input.component';
 import {HomeComponent} from './pages/home/home.component';
-import {AuthComponent} from './pages/auth/auth.component';
 import {MainLayoutComponent} from './templates/main-layout/main-layout.component';
 import {SignupFormComponent} from './modules/signup-form/signup-form.component';
 import {SigninFormComponent} from './modules/signin-form/signin-form.component';
@@ -44,7 +43,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { LoadingSpinnerComponent } from './modules/loading-spinner/loading-spinner.component';
 import {LoadingInterceptor} from "./interceptors/loading.interceptor";
-import {LoadingService} from "./utils/loading-service.service";
+import {LoadingService} from "./utils/loading.service";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {HttpHelperService} from "./utils/http-helper.service";
 
@@ -56,7 +55,6 @@ import {HttpHelperService} from "./utils/http-helper.service";
     ButtonComponent,
     InputComponent,
     HomeComponent,
-    AuthComponent,
     MainLayoutComponent,
     SignupFormComponent,
     SigninFormComponent,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {LoadingService} from "../../utils/loading-service.service";
+import {LoadingService} from "../../utils/loading.service";
 
 @Component({
   selector: 'app-loading-spinner',

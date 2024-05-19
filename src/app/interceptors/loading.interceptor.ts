@@ -1,5 +1,5 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpInterceptorFn, HttpRequest} from '@angular/common/http';
-import {LoadingService} from "../utils/loading-service.service";
+import {LoadingService} from "../utils/loading.service";
 import {finalize, Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 

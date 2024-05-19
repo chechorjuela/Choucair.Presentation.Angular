@@ -1,40 +1,42 @@
 <div class="signup-container">
   <mat-card>
-    <h2>Registrarse</h2>
+    <h2>Sign Up</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-row">
         <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Nombre</mat-label>
+          <mat-label>First Name</mat-label>
           <input matInput formControlName="firstName" required>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="outline" class="half-width">
-          <mat-label>Apellido</mat-label>
+          <mat-label>Last Name</mat-label>
           <input matInput formControlName="lastName" required>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
       </div>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>UserName</mat-label>
+        <mat-label>User Name</mat-label>
         <input matInput formControlName="username" required>
         <mat-icon matSuffix>username</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>Password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
       </mat-form-field>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Confirmar Contraseña</mat-label>
+        <mat-label>Confirm Pasword</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-raised-button color="primary" class="full-width">Registrarse</button>
-      <button mat-stroked-button color="accent" (click)="toggleForm()" class="full-width">Iniciar sesión</button>
+      <button mat-raised-button color="primary" class="full-width">Sign Up</button>
+      <button mat-stroked-button color="accent" (click)="toggleForm()" class="full-width">Sign In</button>
     </form>
   </mat-card>
 </div>

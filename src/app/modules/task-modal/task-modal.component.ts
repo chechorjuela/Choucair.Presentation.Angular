@@ -12,13 +12,16 @@ export class TaskModalComponent implements OnInit {
   @Input() data: any;
 
   constructor(public dialogRef: MatDialogRef<TaskModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public modalData: any) {}
+              @Inject(MAT_DIALOG_DATA) public modalData: any) {
+  }
+
   ngOnInit(): void {
     if (!this.data) {
       const {task} = this.modalData
       this.data = task;
     }
   }
+
   onTaskSubmit(task: TaskModel) {
     this.dialogRef.close(task);
   }

@@ -13,7 +13,8 @@ export class ConfirmDeleteComponent {
   constructor(
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public modalData: any
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     if (!this.data) {

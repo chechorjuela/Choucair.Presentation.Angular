@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import {createReducer, on} from '@ngrx/store';
 import {
   deleteTaskRequest,
   getAllTaskRequest,
@@ -6,7 +6,7 @@ import {
   getTaskByUserRequest,
   getTaskByUserSuccess, postTaskFailure, postTaskRequest, postTaskSuccess
 } from "../actions/task.actions";
-import {initialTaskState} from "../state/task-user-state";
+import {initialTaskState} from "../state/task-user.state";
 
 const _taskReducer = createReducer(
   initialTaskState,
@@ -14,7 +14,7 @@ const _taskReducer = createReducer(
     ...state,
     loading: true
   })),
-  on(getAllTaskSuccess, (state, { tasks }) => ({
+  on(getAllTaskSuccess, (state, {tasks}) => ({
     ...state,
     tasksAll: tasks,
     loading: false,
@@ -25,13 +25,13 @@ const _taskReducer = createReducer(
     loading: true,
     error: null
   })),
-  on(getTaskByUserSuccess, (state, { tasks }) => ({
+  on(getTaskByUserSuccess, (state, {tasks}) => ({
     ...state,
     tasksUser: tasks,
     loading: false,
     error: null
   })),
-  on(postTaskRequest, (state, { task }) => ({
+  on(postTaskRequest, (state, {task}) => ({
     ...state,
     loading: true,
     error: null

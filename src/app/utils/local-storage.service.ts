@@ -4,7 +4,8 @@ import {Injectable} from "@angular/core";
   providedIn: 'root'
 })
 export class LocalStorageService {
-  constructor() {}
+  constructor() {
+  }
 
   // Save data to localStorage
   save(key: string, data: any): void {
@@ -23,7 +24,7 @@ export class LocalStorageService {
   update(key: string, newData: any): void {
     const existingData = this.get(key);
     if (existingData) {
-      this.save(key, { ...existingData, ...newData });
+      this.save(key, {...existingData, ...newData});
     }
   }
 

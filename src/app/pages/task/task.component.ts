@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {TaskModel} from "../../store/models/task.model";
 import {Store} from "@ngrx/store";
@@ -13,9 +13,8 @@ import {
 } from "../../store/selectors/task.selectors";
 import {MatDialog} from "@angular/material/dialog";
 import {TaskModalComponent} from "../../modules/task-modal/task-modal.component";
-import {map} from "rxjs/operators";
 import {ConfirmDeleteComponent} from "../../modules/confirm-delete/confirm-delete.component";
-import {TaskState} from "../../store/state/task-user-state";
+import {TaskState} from "../../store/state/task-user.state";
 
 @Component({
   selector: 'app-task',
@@ -23,10 +22,10 @@ import {TaskState} from "../../store/state/task-user-state";
   styleUrl: './task.component.scss'
 })
 export class TaskComponent {
-  displayedColumns: string[] = ['id', 'title', 'description','time', 'createdAt', 'createdBy', 'isCompleted', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'description', 'time', 'createdAt', 'createdBy', 'isCompleted', 'actions'];
   tasks$: Observable<TaskModel[]> = new Observable<TaskModel[]>();
-  loading$! : Observable<boolean>;
-  error$! : Observable<string> | undefined;
+  loading$!: Observable<boolean>;
+  error$!: Observable<string> | undefined;
 
 
   constructor(private store: Store<TaskState>, public dialog: MatDialog) {
@@ -55,7 +54,7 @@ export class TaskComponent {
 
   openEditModal(task: TaskModel): void {
     const dialogRef = this.dialog.open(TaskModalComponent, {
-      data:  {task},
+      data: {task},
       width: '400px'
     });
 
@@ -69,7 +68,7 @@ export class TaskComponent {
 
   deleteTask(task: TaskModel): void {
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
-      data: { task }
+      data: {task}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

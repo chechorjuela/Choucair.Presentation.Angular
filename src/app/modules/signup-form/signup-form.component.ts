@@ -14,10 +14,11 @@ export class SignupFormComponent implements OnInit {
   hide = true;
   @Output() toggleFormEvent = new EventEmitter<void>();
 
-  constructor(private fb: FormBuilder,  private store: Store,
+  constructor(private fb: FormBuilder, private store: Store,
               private route: Router) {
     this.registerForm = this.fb.group({});
   }
+
   ngOnInit(): void {
     this.createForm();
   }
@@ -30,13 +31,14 @@ export class SignupFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
-    }, { validator: this.passwordMatchValidator });
+    }, {validator: this.passwordMatchValidator});
   }
 
   passwordMatchValidator(form: FormGroup): any {
     return form.controls['password'].value === form.controls['confirmPassword'].value
-      ? null : { mismatch: true };
+      ? null : {mismatch: true};
   }
+
   onRegister() {
     const credentials = {
       firstName: this.registerForm.value.firstName,
@@ -46,7 +48,7 @@ export class SignupFormComponent implements OnInit {
       confirmPassword: this.registerForm.value.confirmPassword
     };
 
-    this.store.dispatch(signUpRequest({ credentials }));
+    this.store.dispatch(signUpRequest({credentials}));
   }
 
   toggleForm() {

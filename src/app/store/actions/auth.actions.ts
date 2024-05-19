@@ -19,7 +19,9 @@ export const signInSuccess
 export const signInFailure = createAction(SignInFailed, props<{ error: any }>());
 
 export const signUpRequest
-  = createAction(SignUpRequest, props<{ credentials: { firstName: string, lastName: string, username: string, password: string, confirmPassword: string } }>());
+  = createAction(SignUpRequest, props<{
+  credentials: { firstName: string, lastName: string, username: string, password: string, confirmPassword: string }
+}>());
 export const signUpSuccess
   = createAction(SignUpSuccess, props<{ user: any }>());
 export const signUpFailure = createAction(SignUpFailed, props<{ error: any }>());

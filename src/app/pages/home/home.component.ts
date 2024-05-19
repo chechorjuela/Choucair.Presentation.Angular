@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'description', 'createdAt', 'createdBy'];
   taskList$: Observable<TaskModel[]> = new Observable<TaskModel[]>(); // Inicializar con un observable vacío
 
-  loading$! : Observable<boolean>;
-  error$! : Observable<string> | undefined;
+  loading$!: Observable<boolean>;
+  error$!: Observable<string> | undefined;
 
   constructor(private store: Store) {
     this.store.dispatch(getAllTaskRequest());

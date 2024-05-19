@@ -10,7 +10,7 @@ import {
   signUpSuccess,
   signUpRequest, signUpFailure
 } from "../actions/auth.actions";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {LocalStorageService} from "../../utils/local-storage.service";
 import {SnackbarService} from "../../utils/snackbar.service";
 
@@ -31,7 +31,7 @@ export class AuthEffects {
       mergeMap((action) =>
         this.authService.login(action.credentials).pipe(
           map((user: any) => {
-            if(user.error){
+            if (user.error) {
               let error = user.error;
               return signInFailure({error});
             }
@@ -51,19 +51,19 @@ export class AuthEffects {
           this.router.navigate(['/dashboard']);
         })
       ),
-    { dispatch: false }
+    {dispatch: false}
   );
   signInFailure$ = createEffect(() =>
       this.actions$.pipe(
         ofType(signInFailure),
         tap(action => {
-          action.error.forEach((e:any)=> {
+          action.error.forEach((e: any) => {
             this.snackbarService.showError(e.errorMessage);
 
           })
         })
       ),
-    { dispatch: false }
+    {dispatch: false}
   );
   signUpRequest$ = createEffect(() =>
     this.actions$.pipe(
@@ -71,7 +71,7 @@ export class AuthEffects {
       mergeMap((action) =>
         this.authService.signUp(action.credentials).pipe(
           map((user: any) => {
-            if(user.error){
+            if (user.error) {
               let error = user.error;
               return signInFailure({error});
             }
@@ -83,14 +83,14 @@ export class AuthEffects {
     )
   );
   signUpSuccess = createEffect(() =>
-    this.actions$.pipe(
-      ofType(signUpSuccess),
-      tap((action) => {
-        this.snackbarService.showSuccess('Sign up successful!');
-        this.router.navigate(['/signin'])
-      })
-    ),
-    { dispatch: false }
+      this.actions$.pipe(
+        ofType(signUpSuccess),
+        tap((action) => {
+          this.snackbarService.showSuccess('Sign up successful!');
+          this.router.navigate(['/signin'])
+        })
+      ),
+    {dispatch: false}
   );
 
 }

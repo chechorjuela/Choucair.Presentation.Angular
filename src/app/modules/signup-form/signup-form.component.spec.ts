@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SignupFormComponent } from './signup-form.component';
+import {SignupFormComponent} from './signup-form.component';
 
 describe('SignupFormComponent', () => {
   let component: SignupFormComponent;
@@ -10,8 +10,8 @@ describe('SignupFormComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [SignupFormComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(SignupFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

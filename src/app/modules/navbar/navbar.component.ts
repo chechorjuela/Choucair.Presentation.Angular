@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Store, select} from '@ngrx/store';
+import {Observable} from 'rxjs';
 import {selectAuthUser} from "../../store/selectors/auth.selectors";
 import {UserModel} from "../../store/models/user.model";
 import {AuthService} from "../../services/auth.service";
@@ -17,12 +17,14 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private store: Store,
-              private router: Router,
-              private localStorageService: LocalStorageService, public authService : AuthService) {}
+    private router: Router,
+    private localStorageService: LocalStorageService, public authService: AuthService) {
+  }
 
   ngOnInit(): void {
     this.user$ = this.store.pipe(select(selectAuthUser));
   }
+
   logout() {
     this.authService.logout();
     this.localStorageService.delete('user');

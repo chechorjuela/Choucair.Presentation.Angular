@@ -1,5 +1,5 @@
-import { createAction, props } from '@ngrx/store';
-import { TaskModel } from '../models/task.model';
+import {createAction, props} from '@ngrx/store';
+import {TaskModel} from '../models/task.model';
 import {
   TaskDeleteFailed,
   TaskDeleteRequest, TaskDeleteSuccess,
@@ -22,7 +22,7 @@ export const getTaskByUserRequest = createAction(TaskGetUserRequest);
 export const getTaskByUserSuccess = createAction(TaskGetUserSuccess, props<{ tasks: TaskModel[] }>());
 export const getTaskByUserFailure = createAction(TaskGetUserFailed, props<{ error: any }>());
 
-export const postTaskRequest = createAction(TaskPostRequest,  props<{ task: TaskModel }>());
+export const postTaskRequest = createAction(TaskPostRequest, props<{ task: TaskModel }>());
 export const postTaskSuccess = createAction(TaskPostSuccess, props<{ task: TaskModel }>());
 export const postTaskFailure = createAction(TaskPostFailed, props<{ error: any }>());
 

@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>{{ data.task.title }}</h1>
 <div mat-dialog-content>
-  <p>Desea eliminar la tarea <strong>{{ data.task.title}}</strong></p>
+  <p>Do you want to delete this item: <strong>{{ data.task.title}}</strong>?</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="closeDialog()">Cancelar</button>
-  <button mat-button color="warn" (click)="confirmDelete()">Eliminar</button>
+  <button mat-button (click)="closeDialog()">cancel</button>
+  <button mat-button color="warn" (click)="confirmDelete()">Delete</button>
 </div>

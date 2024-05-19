@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { catchError, map, mergeMap, tap, switchMap } from 'rxjs/operators';
-import { TaskService } from '../../services/task.service';
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {of} from 'rxjs';
+import {catchError, map, mergeMap, tap, switchMap} from 'rxjs/operators';
+import {TaskService} from '../../services/task.service';
 import {
   deleteTaskRequest,
   getAllTaskFailure,
@@ -16,8 +16,8 @@ import {
   putTaskSuccess,
   deleteTaskSuccess
 } from '../actions/task.actions';
-import { Router } from "@angular/router";
-import { SnackbarService } from "../../utils/snackbar.service";
+import {Router} from "@angular/router";
+import {SnackbarService} from "../../utils/snackbar.service";
 
 @Injectable()
 export class TaskEffects {
@@ -25,10 +25,11 @@ export class TaskEffects {
   constructor(
     private actions$: Actions,
     private snackbarService: SnackbarService,
-    private taskService: TaskService) {}
+    private taskService: TaskService) {
+  }
 
   private handleError = (error: any) => {
-    return of(getAllTaskFailure({ error }));
+    return of(getAllTaskFailure({error}));
   };
 
   getAllTaskRequest$ = createEffect(() =>
@@ -37,7 +38,7 @@ export class TaskEffects {
       mergeMap(() =>
         this.taskService.getTasks().pipe(
           tap((tasks) => console.info('Tasks received from API:', tasks)),
-          map((tasks) => getAllTaskSuccess({ tasks })),
+          map((tasks) => getAllTaskSuccess({tasks})),
           catchError(this.handleError)
         )
       )
@@ -50,7 +51,7 @@ export class TaskEffects {
       mergeMap(() =>
         this.taskService.getTasksByUser().pipe(
           tap((tasks) => console.info('Tasks received from API:', tasks)),
-          map((tasks) => getTaskByUserSuccess({ tasks })),
+          map((tasks) => getTaskByUserSuccess({tasks})),
           catchError(this.handleError)
         )
       )
@@ -62,10 +63,10 @@ export class TaskEffects {
       ofType(postTaskRequest),
       mergeMap((action) =>
         this.taskService.postTask(action.task).pipe(
-          map((task) => postTaskSuccess({ task })),
+          map((task) => postTaskSuccess({task})),
           catchError((error) => {
             this.snackbarService.showError('Failed to create task');
-            return of(getAllTaskFailure({ error }));
+            return of(getAllTaskFailure({error}));
           })
         )
       )
@@ -77,10 +78,10 @@ export class TaskEffects {
       ofType(putTaskRequest),
       mergeMap((action) =>
         this.taskService.putTask(action.task).pipe(
-          map((task) => putTaskSuccess({ task })),
+          map((task) => putTaskSuccess({task})),
           catchError((error) => {
             this.snackbarService.showError('Failed to update task');
-            return of(getAllTaskFailure({ error }));
+            return of(getAllTaskFailure({error}));
           })
         )
       )
@@ -93,10 +94,10 @@ export class TaskEffects {
       tap((action) => console.info('Action received:', action)),
       mergeMap((action) =>
         this.taskService.deleteTask(action.task).pipe(
-          map(() => deleteTaskSuccess({ task: action.task })),
+          map(() => deleteTaskSuccess({task: action.task})),
           catchError((error) => {
             this.snackbarService.showError('Failed to delete task');
-            return of(getAllTaskFailure({ error }));
+            return of(getAllTaskFailure({error}));
           })
         )
       )

@@ -6,7 +6,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class SnackbarService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {
+  }
 
   showSuccess(message: string): void {
     this.showSnackbar(message, 'success-snackbar');
@@ -25,6 +26,6 @@ export class SnackbarService {
   }
 
   private showSnackbar(message: string, panelClass: string): void {
-    this.snackBar.open(message, 'Close', { duration: 3000, panelClass: [panelClass] });
+    this.snackBar.open(message, 'Close', {duration: 3000, panelClass: [panelClass]});
   }
 }

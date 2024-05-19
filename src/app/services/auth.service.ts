@@ -16,7 +16,6 @@ export class AuthService {
   private isAuthenticated = false;
 
   constructor(
-    private http: HttpClient,
     private httpHelper: HttpHelperService,
     private localStorageService: LocalStorageService,
   ) {
@@ -24,19 +23,21 @@ export class AuthService {
 
   checkAuthenticated(): boolean {
     const user = this.localStorageService.get('user');
-    if(user){
-      if(user.token)
+    if (user) {
+      if (user.token)
         this.isAuthenticated = true;
     }
     return this.isAuthenticated;
 
   }
-  logout(){
+
+  logout() {
     this.isAuthenticated = false;
     return this.isAuthenticated;
 
   }
-  login(credencials : any): Observable<UserModel> {
+
+  login(credencials: any): Observable<UserModel> {
 
     return this.httpHelper.post<TaskModel[]>(`${API_ROUTES.AUTH.SIGNIN}`, credencials).pipe(
       map((response: any) => {
@@ -47,7 +48,8 @@ export class AuthService {
       })
     );
   }
-  signUp(credencials : any): Observable<any> {
+
+  signUp(credencials: any): Observable<any> {
 
     return this.httpHelper.post<any>(`${API_ROUTES.AUTH.SIGNUP}`, credencials).pipe(
       map((response: any) => {

@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
-import { Store } from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {signInRequest} from "../../store/actions/auth.actions";
 
 @Component({
@@ -30,10 +30,11 @@ export class SigninFormComponent {
 
   onSubmit() {
 
-    const credentials = { username: this.loginForm.value.username, password: this.loginForm.value.password };
+    const credentials = {username: this.loginForm.value.username, password: this.loginForm.value.password};
 
-    this.store.dispatch(signInRequest({ credentials }));
+    this.store.dispatch(signInRequest({credentials}));
   }
+
   toggleForm() {
     this.router.navigate(['/signup'])
   }

@@ -2,8 +2,6 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TaskModel} from "../../store/models/task.model";
 import {
-  getAllTaskRequest,
-  getTaskByUserRequest,
   postTaskRequest,
   putTaskRequest
 } from "../../store/actions/task.actions";
@@ -46,7 +44,7 @@ export class TaskFormComponent {
       const {userId} = this.localStorageService.get('user');
 
       let task: TaskModel = {
-        id: this.taskpath? this.taskpath.id : undefined,
+        id: this.taskpath ? this.taskpath.id : undefined,
         title: this.taskForm.value.title,
         description: this.taskForm.value.description,
         time: this.taskForm.value.time,
@@ -54,9 +52,9 @@ export class TaskFormComponent {
         isCompleted: this.taskForm.value.isCompleted
       }
 
-      if(this.taskpath){
+      if (this.taskpath) {
         this.store.dispatch(putTaskRequest({task}));
-      }else{
+      } else {
         this.store.dispatch(postTaskRequest({task}));
       }
       this.onCancel.emit();

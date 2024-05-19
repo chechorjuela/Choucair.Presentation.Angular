@@ -8,10 +8,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class HttpHelperService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   private getHeaders(): HttpHeaders {
-    return new HttpHeaders({ 'Content-Type': 'application/json' });
+    return new HttpHeaders({'Content-Type': 'application/json'});
   }
 
   private handleError(error: any): Observable<any> {
@@ -20,7 +21,7 @@ export class HttpHelperService {
   }
 
   public get<T>(url: string): Observable<T> {
-    return this.http.get<T>(`${url}`, { headers: this.getHeaders() }).pipe(
+    return this.http.get<T>(`${url}`, {headers: this.getHeaders()}).pipe(
       map(response => response),
       catchError(this.handleError)
     );
@@ -34,14 +35,14 @@ export class HttpHelperService {
   }
 
   public put<T>(url: string, body: any): Observable<T> {
-    return this.http.put<T>(`${url}`, body, { headers: this.getHeaders() }).pipe(
+    return this.http.put<T>(`${url}`, body, {headers: this.getHeaders()}).pipe(
       map(response => response),
       catchError(this.handleError)
     );
   }
 
   public delete<T>(url: string): Observable<T> {
-    return this.http.delete<T>(`${url}`, { headers: this.getHeaders() }).pipe(
+    return this.http.delete<T>(`${url}`, {headers: this.getHeaders()}).pipe(
       map(response => response),
       catchError(this.handleError)
     );

@@ -11,7 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     //const {token} = this.localStorageService.get('user');
     const excludedRoutes = [
-      'auth/signi',
+      'auth/signin',
       'auth/signup'
     ];
 
